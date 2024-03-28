@@ -12,7 +12,7 @@ def test_greeting():
 
     # output = "Привет, {name}! Тебе {age} лет.".format(name=name, age=age)
     output = f"Привет, {name}! Тебе {age} лет."
-
+    print(output)
     # Проверяем результат
     assert output == "Привет, Анна! Тебе 25 лет."
 
@@ -25,12 +25,12 @@ def test_rectangle():
     a = 10
     b = 20
     # TODO сосчитайте периметр
-    perimeter = a*2 + b*2
+    perimeter = (a + b) * 2
 
     assert perimeter == 60
 
     # TODO сосчитайте площадь
-    area = a*b
+    area = a * b
 
     assert area == 200
 
@@ -42,14 +42,14 @@ def test_circle():
     """
     r = 23
     # TODO сосчитайте площадь
-    area = math.pi * r * r
-
+    area = math.pi * r ** 2
+    print(area)
     assert area == 1661.9025137490005
 
     # TODO сосчитайте длину окружности
     d = r * 2
     length = math.pi * d
-
+    print(length)
     assert length == 144.51326206513048
 
 
@@ -59,18 +59,7 @@ def test_random_list():
     """
     # TODO создайте список
 
-    l = [
-        random.randint(1,100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-        random.randint(1, 100),
-    ]
+    l = [random.randint(1, 100) for _ in range(10)]
     l.sort()
     assert len(l) == 10
     assert all(l[i] <= l[i + 1] for i in range(len(l) - 1))
